@@ -1,0 +1,27 @@
+{
+  "unversionedId": "backend/intro",
+  "id": "backend/intro",
+  "title": "Introduction",
+  "description": "You have just learned the Quivrs",
+  "source": "@site/docs/backend/intro.md",
+  "sourceDirName": "backend",
+  "slug": "/backend/intro",
+  "permalink": "/docs/backend/intro",
+  "draft": false,
+  "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/backend/intro.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Backend Development",
+    "permalink": "/docs/category/backend-development"
+  },
+  "next": {
+    "title": "Frontend Development",
+    "permalink": "/docs/category/frontend-development"
+  }
+}

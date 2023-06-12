@@ -1,0 +1,23 @@
+{
+  "unversionedId": "frontend/manage-docs-versions",
+  "id": "frontend/manage-docs-versions",
+  "title": "Introduction",
+  "description": "",
+  "source": "@site/docs/frontend/manage-docs-versions.md",
+  "sourceDirName": "frontend",
+  "slug": "/frontend/manage-docs-versions",
+  "permalink": "/docs/frontend/manage-docs-versions",
+  "draft": false,
+  "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/frontend/manage-docs-versions.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Frontend Development",
+    "permalink": "/docs/category/frontend-development"
+  }
+}

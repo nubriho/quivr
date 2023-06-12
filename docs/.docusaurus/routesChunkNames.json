@@ -1,0 +1,90 @@
+{
+  "/__docusaurus/debug-e4d": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debug-384-fd5"
+    }
+  },
+  "/__docusaurus/debug/config-150": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debug-384-fd5"
+    }
+  },
+  "/__docusaurus/debug/content-8a6": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---docusaurus-debug-384-fd5"
+    },
+    "allContent": "allContent---docusaurus-debug-content-246-9aa"
+  },
+  "/__docusaurus/debug/globalData-7b1": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---docusaurus-debug-384-fd5"
+    }
+  },
+  "/__docusaurus/debug/metadata-79b": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---docusaurus-debug-384-fd5"
+    }
+  },
+  "/__docusaurus/debug/registry-42f": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---docusaurus-debug-384-fd5"
+    }
+  },
+  "/__docusaurus/debug/routes-060": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---docusaurus-debug-384-fd5"
+    }
+  },
+  "/markdown-page-b8a": {
+    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__context": {
+      "plugin": "plugin---markdown-page-433-7f6"
+    },
+    "content": "content---markdown-page-393-028"
+  },
+  "/docs-31a": {
+    "__comp": "__comp---theme-doc-page-1-be-9be",
+    "__context": {
+      "plugin": "plugin---docs-1-c-2-8c9"
+    },
+    "versionMetadata": "versionMetadata---docs-935-398"
+  },
+  "/docs/backend/intro-a7f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-backend-intro-160-8e2"
+  },
+  "/docs/category/backend-development-a07": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-backend-development-309-c1c"
+  },
+  "/docs/category/frontend-development-65b": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-frontend-development-062-d55"
+  },
+  "/docs/frontend/manage-docs-versions-f63": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-frontend-manage-docs-versions-620-d41"
+  },
+  "/docs/intro-aed": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-intro-0-e-3-be1"
+  },
+  "/docs/roadmap-7ea": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-roadmap-0-df-a69"
+  },
+  "/-70f": {
+    "__comp": "__comp---site-src-pages-index-jsc-4-f-f99",
+    "__context": {
+      "plugin": "plugin---markdown-page-433-7f6"
+    },
+    "config": "config---5-e-9-4f3"
+  }
+}

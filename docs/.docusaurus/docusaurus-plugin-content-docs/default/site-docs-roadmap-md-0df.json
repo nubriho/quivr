@@ -1,0 +1,27 @@
+{
+  "unversionedId": "roadmap",
+  "id": "roadmap",
+  "title": "Roadmap",
+  "description": "🚀 What's next?",
+  "source": "@site/docs/roadmap.md",
+  "sourceDirName": ".",
+  "slug": "/roadmap",
+  "permalink": "/docs/roadmap",
+  "draft": false,
+  "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/roadmap.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Intro",
+    "permalink": "/docs/intro"
+  },
+  "next": {
+    "title": "Backend Development",
+    "permalink": "/docs/category/backend-development"
+  }
+}

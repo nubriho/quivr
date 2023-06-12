@@ -1,0 +1,15 @@
+{
+  "title": "Frontend Development",
+  "slug": "/category/frontend-development",
+  "permalink": "/docs/category/frontend-development",
+  "navigation": {
+    "previous": {
+      "title": "Introduction",
+      "permalink": "/docs/backend/intro"
+    },
+    "next": {
+      "title": "Introduction",
+      "permalink": "/docs/frontend/manage-docs-versions"
+    }
+  }
+}

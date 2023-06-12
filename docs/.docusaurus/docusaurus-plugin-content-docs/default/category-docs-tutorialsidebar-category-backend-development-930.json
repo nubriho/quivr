@@ -1,0 +1,16 @@
+{
+  "title": "Backend Development",
+  "description": "How does the backend works?",
+  "slug": "/category/backend-development",
+  "permalink": "/docs/category/backend-development",
+  "navigation": {
+    "previous": {
+      "title": "Roadmap",
+      "permalink": "/docs/roadmap"
+    },
+    "next": {
+      "title": "Introduction",
+      "permalink": "/docs/backend/intro"
+    }
+  }
+}
