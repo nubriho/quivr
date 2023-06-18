@@ -10,8 +10,8 @@ from langchain.document_loaders import TextLoader
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from utils.common import documents_vector_store
 from utils.file import compute_sha1_from_content
-from utils.vectors import documents_vector_store
 dotenv.load_dotenv(verbose=True)
 # # Create a function to transcribe audio using Whisper
 # def _transcribe_audio(api_key, audio_file, stats_db):
@@ -58,7 +58,7 @@ async def process_audio(upload_file: UploadFile, enable_summarization: bool, use
     file_size = len(transcript.text.encode("utf-8"))
 
     # Load chunk size and overlap from sidebar
-    chunk_size = 500
+    chunk_size = 1000
     chunk_overlap = 0
 
     text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
