@@ -4,11 +4,11 @@ from auth.api_key_handler import verify_api_key, get_user_from_api_key
 from auth.jwt_token_handler import decode_access_token, verify_token
 
 from typing import Optional
-
-from fastapi import HTTPException, Request, Depends
-from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from fastapi import Depends, Request, HTTPException
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from models.users import User
 from utils.vectors import CommonsDep
+import dotenv
 dotenv.load_dotenv(verbose=True)
 class AuthBearer(HTTPBearer):
     def __init__(self, auto_error: bool = True):
