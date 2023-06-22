@@ -10,5 +10,10 @@ class ChatMessage(BaseModel):
     use_summarization: bool = False
     chat_id: Optional[UUID] = None
     chat_name: Optional[str] = None
-class ChatAttributes(BaseModel):
-    chat_name: Optional[str] = None
+
+
+class ChatQuestion(BaseModel):
+    model: str = "gpt-3.5-turbo-0613"
+    question: str
+    temperature: float = 0.0
+    max_tokens: int = 256
