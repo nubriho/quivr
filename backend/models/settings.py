@@ -1,12 +1,9 @@
 from typing import Annotated, Any, Dict, List, Tuple, Union
-
 from fastapi import Depends
 from langchain.embeddings.openai import OpenAIEmbeddings
 from pydantic import BaseSettings
 from supabase import Client, create_client
 from vectorstore.supabase import SupabaseVectorStore
-
-
 class BrainSettings(BaseSettings):
     openai_api_key: str
     anthropic_api_key: str
@@ -14,10 +11,10 @@ class BrainSettings(BaseSettings):
     supabase_service_key: str
 
 class LLMSettings(BaseSettings):
-    private: bool
-    model_path: str
-    model_n_ctx: int
-    model_n_batch: int
+    private: bool = False
+    model_path: str = ""
+    model_n_ctx: int = 0
+    model_n_batch: int = 0
 
 def common_dependencies() -> dict:
     settings = BrainSettings()
@@ -34,5 +31,4 @@ def common_dependencies() -> dict:
         "documents_vector_store": documents_vector_store,
         "summaries_vector_store": summaries_vector_store
     }
-
 CommonsDep = Annotated[dict, Depends(common_dependencies)]

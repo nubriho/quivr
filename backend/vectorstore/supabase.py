@@ -4,10 +4,7 @@ from langchain.docstore.document import Document
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import SupabaseVectorStore
 from supabase import Client
-
-
 class CustomSupabaseVectorStore(SupabaseVectorStore):
-    '''A custom vector store that uses the match_vectors table instead of the vectors table.'''
     user_id: str
     def __init__(self, client: Client, embedding: OpenAIEmbeddings, table_name: str, user_id: str = "none"):
         super().__init__(client, embedding, table_name)
@@ -35,7 +32,7 @@ class CustomSupabaseVectorStore(SupabaseVectorStore):
         match_result = [
             (
                 Document(
-                    metadata=search.get("metadata", {}),  # type: ignore
+                    metadata=search.get("metadata", {}),
                     page_content=search.get("content", ""),
                 ),
                 search.get("similarity", 0.0),

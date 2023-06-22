@@ -1,16 +1,16 @@
 import os
 from typing import Annotated
-
+import dotenv
 from fastapi import Depends
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.schema import Document
+from models.settings import CommonsDep
 from llm.brainpicking import BrainPicking, BrainSettings
 from llm.summarization import llm_evaluate_summaries, llm_summerize
 from logger import get_logger
 from models.chats import ChatMessage
-from utils.common import CommonsDep
 dotenv.load_dotenv(verbose=True)
-from models.settings import BrainSettings, CommonsDep
+from models.settings import BrainSettings
 from pydantic import BaseModel
 
 logger = get_logger(__name__)
