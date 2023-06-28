@@ -105,10 +105,6 @@ async def create_chat_handler(
     chat_data: CreateChatProperties,
     current_user: User = Depends(get_current_user),
 ):
-    """
-    Create a new chat with initial chat messages.
-    """
-
     return create_chat(user_id=current_user.id,chat_data=chat_data)
 
 
