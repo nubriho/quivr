@@ -1,8 +1,8 @@
 {
   "unversionedId": "backend/intro",
   "id": "backend/intro",
-  "title": "Introduction",
-  "description": "You have just learned the Quivrs",
+  "title": "intro",
+  "description": "Quivr is using FastAPI to provide a RESTful API for the backend. The API is currently in beta and is subject to change. The API is available at https://api.quivr.app.",
   "source": "@site/docs/backend/intro.md",
   "sourceDirName": "backend",
   "slug": "/backend/intro",
@@ -17,11 +17,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Backend Development",
-    "permalink": "/docs/category/backend-development"
+    "title": "Error Handling",
+    "permalink": "/docs/backend/api/error_handling"
   },
   "next": {
-    "title": "Frontend Development",
-    "permalink": "/docs/category/frontend-development"
+    "title": "LLM",
+    "permalink": "/docs/category/llm"
   }
 }

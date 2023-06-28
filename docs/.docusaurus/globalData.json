@@ -8,11 +8,31 @@
           "label": "Next",
           "isLast": true,
           "path": "/docs",
-          "mainDocId": "intro",
+          "mainDocId": "get_started/intro",
           "docs": [
+            {
+              "id": "backend/api/chat",
+              "path": "/docs/backend/api/chat",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "backend/api/error_handling",
+              "path": "/docs/backend/api/error_handling",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "backend/api/getting_started",
+              "path": "/docs/backend/api/getting_started",
+              "sidebar": "tutorialSidebar"
+            },
             {
               "id": "backend/intro",
               "path": "/docs/backend/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "backend/llm/private-llm",
+              "path": "/docs/backend/llm/private-llm",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -21,8 +41,13 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "intro",
-              "path": "/docs/intro",
+              "id": "get_started/intro",
+              "path": "/docs/get_started/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "privacy_policy",
+              "path": "/docs/privacy_policy",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -31,13 +56,28 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "/category/backend-development",
-              "path": "/docs/category/backend-development",
+              "id": "/category/getting-started",
+              "path": "/docs/category/getting-started",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "/category/frontend-development",
-              "path": "/docs/category/frontend-development",
+              "id": "/category/quivrs-brain",
+              "path": "/docs/category/quivrs-brain",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/api",
+              "path": "/docs/category/api",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/llm",
+              "path": "/docs/category/llm",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/quivrs-face",
+              "path": "/docs/category/quivrs-face",
               "sidebar": "tutorialSidebar"
             }
           ],
@@ -45,8 +85,8 @@
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/docs/intro",
-                "label": "intro"
+                "path": "/docs/category/getting-started",
+                "label": "Getting Started"
               }
             }
           }

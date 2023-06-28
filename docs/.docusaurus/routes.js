@@ -44,8 +44,26 @@ export default [
   },
   {
     path: '/docs',
-    component: ComponentCreator('/docs', '31a'),
+    component: ComponentCreator('/docs', 'a84'),
     routes: [
+      {
+        path: '/docs/backend/api/chat',
+        component: ComponentCreator('/docs/backend/api/chat', '621'),
+        exact: true,
+        sidebar: "tutorialSidebar"
+      },
+      {
+        path: '/docs/backend/api/error_handling',
+        component: ComponentCreator('/docs/backend/api/error_handling', 'af8'),
+        exact: true,
+        sidebar: "tutorialSidebar"
+      },
+      {
+        path: '/docs/backend/api/getting_started',
+        component: ComponentCreator('/docs/backend/api/getting_started', 'd8e'),
+        exact: true,
+        sidebar: "tutorialSidebar"
+      },
       {
         path: '/docs/backend/intro',
         component: ComponentCreator('/docs/backend/intro', 'a7f'),
@@ -53,14 +71,38 @@ export default [
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/category/backend-development',
-        component: ComponentCreator('/docs/category/backend-development', 'a07'),
+        path: '/docs/backend/llm/private-llm',
+        component: ComponentCreator('/docs/backend/llm/private-llm', '699'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/category/frontend-development',
-        component: ComponentCreator('/docs/category/frontend-development', '65b'),
+        path: '/docs/category/api',
+        component: ComponentCreator('/docs/category/api', '664'),
+        exact: true,
+        sidebar: "tutorialSidebar"
+      },
+      {
+        path: '/docs/category/getting-started',
+        component: ComponentCreator('/docs/category/getting-started', '01f'),
+        exact: true,
+        sidebar: "tutorialSidebar"
+      },
+      {
+        path: '/docs/category/llm',
+        component: ComponentCreator('/docs/category/llm', 'b34'),
+        exact: true,
+        sidebar: "tutorialSidebar"
+      },
+      {
+        path: '/docs/category/quivrs-brain',
+        component: ComponentCreator('/docs/category/quivrs-brain', '1d3'),
+        exact: true,
+        sidebar: "tutorialSidebar"
+      },
+      {
+        path: '/docs/category/quivrs-face',
+        component: ComponentCreator('/docs/category/quivrs-face', '21d'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
@@ -71,8 +113,14 @@ export default [
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/intro',
-        component: ComponentCreator('/docs/intro', 'aed'),
+        path: '/docs/get_started/intro',
+        component: ComponentCreator('/docs/get_started/intro', 'a87'),
+        exact: true,
+        sidebar: "tutorialSidebar"
+      },
+      {
+        path: '/docs/privacy_policy',
+        component: ComponentCreator('/docs/privacy_policy', '039'),
         exact: true,
         sidebar: "tutorialSidebar"
       },

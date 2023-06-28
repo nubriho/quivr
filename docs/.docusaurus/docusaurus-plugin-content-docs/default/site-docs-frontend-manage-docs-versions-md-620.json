@@ -17,7 +17,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Frontend Development",
-    "permalink": "/docs/category/frontend-development"
+    "title": "Quivr's Face",
+    "permalink": "/docs/category/quivrs-face"
+  },
+  "next": {
+    "title": "Roadmap",
+    "permalink": "/docs/roadmap"
   }
 }

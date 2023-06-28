@@ -49,32 +49,64 @@
     },
     "content": "content---markdown-page-393-028"
   },
-  "/docs-31a": {
+  "/docs-a84": {
     "__comp": "__comp---theme-doc-page-1-be-9be",
     "__context": {
       "plugin": "plugin---docs-1-c-2-8c9"
     },
     "versionMetadata": "versionMetadata---docs-935-398"
   },
+  "/docs/backend/api/chat-621": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-backend-api-chatf-6-e-796"
+  },
+  "/docs/backend/api/error_handling-af8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-backend-api-error-handling-9-ab-db3"
+  },
+  "/docs/backend/api/getting_started-d8e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-backend-api-getting-started-4-bb-0dd"
+  },
   "/docs/backend/intro-a7f": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-backend-intro-160-8e2"
   },
-  "/docs/category/backend-development-a07": {
-    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
-    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-backend-development-309-c1c"
+  "/docs/backend/llm/private-llm-699": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-backend-llm-private-llmc-7-d-770"
   },
-  "/docs/category/frontend-development-65b": {
+  "/docs/category/api-664": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
-    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-frontend-development-062-d55"
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-api-988-bc4"
+  },
+  "/docs/category/getting-started-01f": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-getting-started-315-9c6"
+  },
+  "/docs/category/llm-b34": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-llmb-71-07d"
+  },
+  "/docs/category/quivrs-brain-1d3": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-quivrs-brain-37-d-93a"
+  },
+  "/docs/category/quivrs-face-21d": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "categoryGeneratedIndex": "categoryGeneratedIndex---docs-category-quivrs-face-44-c-6d2"
   },
   "/docs/frontend/manage-docs-versions-f63": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---docs-frontend-manage-docs-versions-620-d41"
   },
-  "/docs/intro-aed": {
+  "/docs/get_started/intro-a87": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---docs-intro-0-e-3-be1"
+    "content": "content---docs-get-started-introf-1-e-661"
+  },
+  "/docs/privacy_policy-039": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-privacy-policycfc-f1b"
   },
   "/docs/roadmap-7ea": {
     "__comp": "__comp---theme-doc-item-178-a40",

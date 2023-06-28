@@ -49,14 +49,18 @@ export default {
       },
       "items": [
         {
-          "type": "docSidebar",
-          "sidebarId": "tutorialSidebar",
-          "position": "left",
-          "label": "Tutorial"
+          "href": "/docs/roadmap",
+          "label": "Roadmap",
+          "position": "left"
+        },
+        {
+          "href": "https://quivr.app",
+          "position": "right",
+          "label": "Try me now"
         },
         {
           "href": "https://github.com/stangirard/Quivr",
-          "label": "GitHub",
+          "label": "Star us on GitHub",
           "position": "right"
         }
       ],
@@ -69,8 +73,8 @@ export default {
           "title": "Docs",
           "items": [
             {
-              "label": "Tutorial",
-              "to": "/docs/intro"
+              "label": "Get Started",
+              "to": "/docs/get_started/intro"
             }
           ]
         },

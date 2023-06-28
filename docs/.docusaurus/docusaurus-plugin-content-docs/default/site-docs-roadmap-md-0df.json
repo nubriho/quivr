@@ -11,17 +11,17 @@
   "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/roadmap.md",
   "tags": [],
   "version": "current",
-  "sidebarPosition": 2,
+  "sidebarPosition": 4,
   "frontMatter": {
-    "sidebar_position": 2
+    "sidebar_position": 4
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Intro",
-    "permalink": "/docs/intro"
+    "title": "Introduction",
+    "permalink": "/docs/frontend/manage-docs-versions"
   },
   "next": {
-    "title": "Backend Development",
-    "permalink": "/docs/category/backend-development"
+    "title": "Privacy Policy",
+    "permalink": "/docs/privacy_policy"
   }
 }

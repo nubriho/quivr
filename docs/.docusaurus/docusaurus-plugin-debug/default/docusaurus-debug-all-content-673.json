@@ -20,10 +20,91 @@
           "contentPathLocalized": "/Users/aswin/Documents/quivr/docs/i18n/en/docusaurus-plugin-content-docs/current",
           "docs": [
             {
+              "unversionedId": "backend/api/chat",
+              "id": "backend/api/chat",
+              "title": "Chat system",
+              "description": "URL//api.quivr.app/chat",
+              "source": "@site/docs/backend/api/chat.md",
+              "sourceDirName": "backend/api",
+              "slug": "/backend/api/chat",
+              "permalink": "/docs/backend/api/chat",
+              "draft": false,
+              "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/backend/api/chat.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 2,
+              "frontMatter": {
+                "sidebar_position": 2
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "How to use the API",
+                "permalink": "/docs/backend/api/getting_started"
+              },
+              "next": {
+                "title": "Error Handling",
+                "permalink": "/docs/backend/api/error_handling"
+              }
+            },
+            {
+              "unversionedId": "backend/api/error_handling",
+              "id": "backend/api/error_handling",
+              "title": "Error Handling",
+              "description": "URL//api.quivr.app/chat",
+              "source": "@site/docs/backend/api/error_handling.md",
+              "sourceDirName": "backend/api",
+              "slug": "/backend/api/error_handling",
+              "permalink": "/docs/backend/api/error_handling",
+              "draft": false,
+              "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/backend/api/error_handling.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_position": 3
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Chat system",
+                "permalink": "/docs/backend/api/chat"
+              },
+              "next": {
+                "title": "intro",
+                "permalink": "/docs/backend/intro"
+              }
+            },
+            {
+              "unversionedId": "backend/api/getting_started",
+              "id": "backend/api/getting_started",
+              "title": "How to use the API",
+              "description": "URL//api.quivr.app",
+              "source": "@site/docs/backend/api/getting_started.md",
+              "sourceDirName": "backend/api",
+              "slug": "/backend/api/getting_started",
+              "permalink": "/docs/backend/api/getting_started",
+              "draft": false,
+              "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/backend/api/getting_started.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "API",
+                "permalink": "/docs/category/api"
+              },
+              "next": {
+                "title": "Chat system",
+                "permalink": "/docs/backend/api/chat"
+              }
+            },
+            {
               "unversionedId": "backend/intro",
               "id": "backend/intro",
-              "title": "Introduction",
-              "description": "You have just learned the Quivrs",
+              "title": "intro",
+              "description": "Quivr is using FastAPI to provide a RESTful API for the backend. The API is currently in beta and is subject to change. The API is available at https://api.quivr.app.",
               "source": "@site/docs/backend/intro.md",
               "sourceDirName": "backend",
               "slug": "/backend/intro",
@@ -38,12 +119,39 @@
               },
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Backend Development",
-                "permalink": "/docs/category/backend-development"
+                "title": "Error Handling",
+                "permalink": "/docs/backend/api/error_handling"
               },
               "next": {
-                "title": "Frontend Development",
-                "permalink": "/docs/category/frontend-development"
+                "title": "LLM",
+                "permalink": "/docs/category/llm"
+              }
+            },
+            {
+              "unversionedId": "backend/llm/private-llm",
+              "id": "backend/llm/private-llm",
+              "title": "Private LLM",
+              "description": "Quivr now has the capability to use a private LLM model powered by GPT4All (other open source models coming soon).",
+              "source": "@site/docs/backend/llm/private-llm.md",
+              "sourceDirName": "backend/llm",
+              "slug": "/backend/llm/private-llm",
+              "permalink": "/docs/backend/llm/private-llm",
+              "draft": false,
+              "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/backend/llm/private-llm.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "LLM",
+                "permalink": "/docs/category/llm"
+              },
+              "next": {
+                "title": "Quivr's Face",
+                "permalink": "/docs/category/quivrs-face"
               }
             },
             {
@@ -65,21 +173,25 @@
               },
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Frontend Development",
-                "permalink": "/docs/category/frontend-development"
+                "title": "Quivr's Face",
+                "permalink": "/docs/category/quivrs-face"
+              },
+              "next": {
+                "title": "Roadmap",
+                "permalink": "/docs/roadmap"
               }
             },
             {
-              "unversionedId": "intro",
-              "id": "intro",
+              "unversionedId": "get_started/intro",
+              "id": "get_started/intro",
               "title": "Intro",
               "description": "Quivr, your second brain, utilizes the power of GenerativeAI to store and retrieve unstructured information. Think of it as Obsidian, but turbocharged with AI capabilities.",
-              "source": "@site/docs/intro.md",
-              "sourceDirName": ".",
-              "slug": "/intro",
-              "permalink": "/docs/intro",
+              "source": "@site/docs/get_started/intro.md",
+              "sourceDirName": "get_started",
+              "slug": "/get_started/intro",
+              "permalink": "/docs/get_started/intro",
               "draft": false,
-              "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/intro.md",
+              "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/get_started/intro.md",
               "tags": [],
               "version": "current",
               "sidebarPosition": 1,
@@ -87,7 +199,35 @@
                 "sidebar_position": 1
               },
               "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Getting Started",
+                "permalink": "/docs/category/getting-started"
+              },
               "next": {
+                "title": "Quivr's Brain",
+                "permalink": "/docs/category/quivrs-brain"
+              }
+            },
+            {
+              "unversionedId": "privacy_policy",
+              "id": "privacy_policy",
+              "title": "Privacy Policy",
+              "description": "Privacy Policy for Quivr",
+              "source": "@site/docs/privacy_policy.md",
+              "sourceDirName": ".",
+              "slug": "/privacy_policy",
+              "permalink": "/docs/privacy_policy",
+              "draft": false,
+              "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/privacy_policy.md",
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 5,
+              "frontMatter": {
+                "sidebar_position": 5,
+                "title": "Privacy Policy"
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
                 "title": "Roadmap",
                 "permalink": "/docs/roadmap"
               }
@@ -105,18 +245,18 @@
               "editUrl": "https://github.com/StanGirard/quivr/tree/main/docs/docs/roadmap.md",
               "tags": [],
               "version": "current",
-              "sidebarPosition": 2,
+              "sidebarPosition": 4,
               "frontMatter": {
-                "sidebar_position": 2
+                "sidebar_position": 4
               },
               "sidebar": "tutorialSidebar",
               "previous": {
-                "title": "Intro",
-                "permalink": "/docs/intro"
+                "title": "Introduction",
+                "permalink": "/docs/frontend/manage-docs-versions"
               },
               "next": {
-                "title": "Backend Development",
-                "permalink": "/docs/category/backend-development"
+                "title": "Privacy Policy",
+                "permalink": "/docs/privacy_policy"
               }
             }
           ],
@@ -124,34 +264,88 @@
           "sidebars": {
             "tutorialSidebar": [
               {
-                "type": "doc",
-                "id": "intro"
-              },
-              {
-                "type": "doc",
-                "id": "roadmap"
-              },
-              {
                 "type": "category",
-                "label": "Backend Development",
+                "label": "Getting Started",
                 "collapsible": true,
                 "collapsed": true,
                 "items": [
                   {
                     "type": "doc",
+                    "id": "get_started/intro"
+                  }
+                ],
+                "link": {
+                  "type": "generated-index",
+                  "description": "How to start using Quivr",
+                  "slug": "/category/getting-started",
+                  "permalink": "/docs/category/getting-started"
+                }
+              },
+              {
+                "type": "category",
+                "label": "Quivr's Brain",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "category",
+                    "label": "API",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "backend/api/getting_started"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "backend/api/chat"
+                      },
+                      {
+                        "type": "doc",
+                        "id": "backend/api/error_handling"
+                      }
+                    ],
+                    "link": {
+                      "type": "generated-index",
+                      "description": "How does the API works ?",
+                      "slug": "/category/api",
+                      "permalink": "/docs/category/api"
+                    }
+                  },
+                  {
+                    "type": "doc",
                     "id": "backend/intro"
+                  },
+                  {
+                    "type": "category",
+                    "label": "LLM",
+                    "collapsible": true,
+                    "collapsed": true,
+                    "items": [
+                      {
+                        "type": "doc",
+                        "id": "backend/llm/private-llm"
+                      }
+                    ],
+                    "link": {
+                      "type": "generated-index",
+                      "description": "How does the LLM (Large Language Model Work)?",
+                      "slug": "/category/llm",
+                      "permalink": "/docs/category/llm"
+                    }
                   }
                 ],
                 "link": {
                   "type": "generated-index",
                   "description": "How does the backend works?",
-                  "slug": "/category/backend-development",
-                  "permalink": "/docs/category/backend-development"
+                  "slug": "/category/quivrs-brain",
+                  "permalink": "/docs/category/quivrs-brain"
                 }
               },
               {
                 "type": "category",
-                "label": "Frontend Development",
+                "label": "Quivr's Face",
                 "collapsible": true,
                 "collapsed": true,
                 "items": [
@@ -162,9 +356,17 @@
                 ],
                 "link": {
                   "type": "generated-index",
-                  "slug": "/category/frontend-development",
-                  "permalink": "/docs/category/frontend-development"
+                  "slug": "/category/quivrs-face",
+                  "permalink": "/docs/category/quivrs-face"
                 }
+              },
+              {
+                "type": "doc",
+                "id": "roadmap"
+              },
+              {
+                "type": "doc",
+                "id": "privacy_policy"
               }
             ]
           }
