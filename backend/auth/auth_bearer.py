@@ -54,4 +54,4 @@ class AuthBearer(HTTPBearer):
     def get_test_user(self):
         return {"email": "test@example.com"}
 def get_current_user(credentials: dict = Depends(AuthBearer())) -> User:
-    return User(email=credentials.get("email", "none"))
+    return User(email=credentials.get("email", "none"), id=credentials.get("sub", "none"))
