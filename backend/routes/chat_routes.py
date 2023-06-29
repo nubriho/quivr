@@ -7,8 +7,9 @@ from uuid import UUID
 from auth.auth_bearer import AuthBearer, get_current_user
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from llm.brainpicking import BrainPicking
-from llm.BrainPickingOpenAIFunctions.BrainPickingOpenAIFunctions import \
-    BrainPickingOpenAIFunctions
+from llm.BrainPickingOpenAIFunctions.BrainPickingOpenAIFunctions import (
+    BrainPickingOpenAIFunctions,
+)
 from llm.PrivateBrainPicking import PrivateBrainPicking
 from models.chat import Chat, ChatHistory
 from models.chats import ChatQuestion
@@ -43,7 +44,7 @@ def delete_chat_from_db(commons, chat_id):
 @chat_router.get("/chat", dependencies=[Depends(AuthBearer())], tags=["Chat"])
 async def get_chats(current_user: User = Depends(get_current_user)):
     commons = common_dependencies()
-    chats = get_user_chats( current_user.id)
+    chats = get_user_chats(current_user.id)
     return {"chats": chats}
 
 
@@ -71,7 +72,6 @@ async def update_chat_metadata_handler(
     """
     commons = common_dependencies()
 
-    
     chat = get_chat_by_id(chat_id)
     if current_user.id != chat.user_id:
         raise HTTPException(
@@ -82,14 +82,13 @@ async def update_chat_metadata_handler(
 
 # helper method for update and create chat
 def check_user_limit(
-    user : User,
-    
+    user: User,
 ):
     if user.user_openai_api_key is None:
         date = time.strftime("%Y%m%d")
         max_requests_number = os.getenv("MAX_REQUESTS_NUMBER")
 
-        user.increment_user_request_count( date )
+        user.increment_user_request_count(date)
         if user.requests_count >= float(max_requests_number):
             raise HTTPException(
                 status_code=429,
@@ -105,7 +104,11 @@ async def create_chat_handler(
     chat_data: CreateChatProperties,
     current_user: User = Depends(get_current_user),
 ):
-    return create_chat(user_id=current_user.id,chat_data=chat_data)
+    """
+    Create a new chat with initial chat messages.
+    """
+
+    return create_chat(user_id=current_user.id, chat_data=chat_data)
 
 
 # add new question to chat
@@ -134,7 +137,7 @@ async def create_question_handler(
                 chat_id=str(chat_id),
                 temperature=chat_question.temperature,
                 max_tokens=chat_question.max_tokens,
-                brain_id = brain_id,
+                brain_id=brain_id,
                 user_openai_api_key=current_user.user_openai_api_key,
             )
             answer = gpt_answer_generator.generate_answer(chat_question.question)
@@ -146,7 +149,7 @@ async def create_question_handler(
                 temperature=chat_question.temperature,
                 max_tokens=chat_question.max_tokens,
                 # TODO: use user_id in vectors table instead of email
-                brain_id = brain_id,
+                brain_id=brain_id,
                 user_openai_api_key=current_user.user_openai_api_key,
             )
             answer = gpt_answer_generator.generate_answer(chat_question.question)
@@ -156,7 +159,7 @@ async def create_question_handler(
                 model=chat_question.model,
                 max_tokens=chat_question.max_tokens,
                 temperature=chat_question.temperature,
-                brain_id = brain_id,
+                brain_id=brain_id,
                 user_openai_api_key=current_user.user_openai_api_key,
             )
             answer = brainPicking.generate_answer(chat_question.question)

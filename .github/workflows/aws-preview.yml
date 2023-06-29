@@ -1,18 +1,18 @@
-name: Deploy to Amazon ECS
+name: Deploy Backend to Preview ECS
 
-on:  
+on:
   push:
-    branches: [ "masa" ]
-    tags:
-      - 'v*'
+    branches: [ "main" ]
 
 env:
-  AWS_REGION: eu-west-3
-  ECR_REPOSITORY: quivr
-  ECS_SERVICE: quivr-backend
-  ECS_CLUSTER: quivr
-  ECS_TASK_DEFINITION: .aws/task_definition.json 
-  CONTAINER_NAME: quivr
+  AWS_REGION: eu-west-3                 # set this to your preferred AWS region, e.g. us-west-1
+  ECR_REPOSITORY: quivr   # set this to your Amazon ECR repository name
+  ECS_SERVICE: quivr-preview                # set this to your Amazon ECS service name
+  ECS_CLUSTER: quivr                 # set this to your Amazon ECS cluster name
+  ECS_TASK_DEFINITION: .aws/task_definition_preview.json # set this to the path to your Amazon ECS task definition
+                                               # file, e.g. .aws/task-definition.json
+  CONTAINER_NAME: quivr           # set this to the name of the container in the
+                                               # containerDefinitions section of your task definition
 
 permissions:
   contents: read
@@ -50,9 +50,7 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        echo "Building image..."
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
