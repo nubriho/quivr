@@ -2,9 +2,13 @@ name: Vitest
 
 on:
   push:
-    branches: [ masa ]
+    branches: [ main ]
+    paths:
+      - 'frontend/**'
   pull_request:
-    branches: [ masa ]
+    branches: [ main ]
+    paths:
+      - 'frontend/**'
 
 jobs:
   build:
@@ -12,13 +16,16 @@ jobs:
     defaults:
         run:
             working-directory: ./frontend
+    strategy:
+      matrix:
+        node-version: [18]
 
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: ${{ matrix.node-version }}
           cache: 'yarn'
           cache-dependency-path: frontend/yarn.lock
       - run: yarn

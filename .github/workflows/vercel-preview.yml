@@ -4,7 +4,9 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   push:
-    branches: [ "masa" ]
+    branches: [ "main" ]
+    paths:
+      - 'frontend/**'
 jobs:
   Deploy-Preview:
     environment: production
