@@ -2,9 +2,9 @@ name: Vitest
 
 on:
   push:
-    branches: [ main ]
+    branches: [ masa ]
   pull_request:
-    branches: [ main ]
+    branches: [ masa ]
 
 jobs:
   build:
