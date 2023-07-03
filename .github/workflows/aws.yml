@@ -2,12 +2,12 @@ name: Deploy to Amazon ECS
 
 on:  
   push:
-    branches: [ "main" ]
+    branches: [ "masa" ]
     tags:
       - 'v*'
 
 env:
-  AWS_REGION: eu-west-3
+  AWS_REGION: eu-west-1
   ECR_REPOSITORY: quivr
   ECS_SERVICE: quivr-backend
   ECS_CLUSTER: quivr
