@@ -3,13 +3,13 @@ runtime: python3 # runtime to use
 build:
   commands:
     build:
-      - pip install -r requirements.txt # install dependencies
+      - pip install -r backend/requirements.txt # install dependencies
 
   env: # define environment variables
     - name: PORT
       value: '5050'
 
 run:
-  command: vicorn main:app --reload --host 0.0.0.0 --port 5050
+  command: uvicorn backend/main:app --reload --host 0.0.0.0 --port 5050
   network:
     port: 5050 # port AppRunner will expose
