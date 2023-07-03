@@ -12,7 +12,7 @@
 
 Quivr, your second brain, utilizes the power of GenerativeAI to store and retrieve unstructured information. Think of it as Obsidian, but turbocharged with AI capabilities.
 
-[Roadmap here](https://brains.quivr.app)
+[Roadmap here](https://brain.quivr.app)
 
 ## Key Features 🎯
 
@@ -39,7 +39,7 @@ https://github.com/StanGirard/quivr/assets/19614572/a6463b73-76c7-4bc0-978d-7056
 
 Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-You can find everything on the documentation [here](https://brains.quivr.app/)
+You can find everything on the documentation [here](https://brain.quivr.app/)
 
 ### Prerequisites 📋
 
@@ -71,7 +71,18 @@ Additionally, you'll need a [Supabase](https://supabase.com/) account for:
   git clone git@github.com:StanGirard/Quivr.git && cd Quivr
   ```
 
-- **Step 2**: Copy the `.XXXXX_env` files
+- ** Step 2**: Use the install helper
+
+You can use the install_helper.sh script to setup your env files
+
+```bash
+brew install gum # Windows (via Scoop) scoop install charm-gum
+
+chmod +x install_helper.sh
+./install_helper.sh
+```
+
+- **Step 2 - Bis**: Copy the `.XXXXX_env` files
 
 ```bash
 cp .backend_env.example backend/.env
@@ -92,8 +103,17 @@ cp .frontend_env.example frontend/.env
 
 - **Step 4**: Run the following migration scripts on the Supabase database via the web interface (SQL Editor -> `New query`)
 
-[Creation Script 1](scripts/tables.sql)
+Use the `migration.sh` script to run the migration scripts
 
+```bash
+chmod +x migration.sh
+./migration.sh
+```
+
+And choose either create_scripts if first time or migrations if you are updating your database
+
+
+All scripts can be found in the [scripts](scripts/) folder
 > _If you come from an old version of Quivr, run the scripts in [migration script](scripts/) to migrate your data to the new version in the order of date_
 
 - **Step 5**: Launch the app
