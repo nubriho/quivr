@@ -4,8 +4,7 @@ import dotenv
 from fastapi import Depends
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.schema import Document
-from llm.brainpicking import BrainSettings
-from llm.summarization import llm_summerize
+from llm.utils.summarization import llm_summerize
 from logger import get_logger
 from models.settings import BrainSettings, CommonsDep
 from pydantic import BaseModel
@@ -16,9 +15,9 @@ logger = get_logger(__name__)
 class Neurons(BaseModel):
     commons: CommonsDep
     settings = BrainSettings()
-    
+
     def create_vector(self, doc, user_openai_api_key=None):
-        logger.info(f"Creating vector for document")
+        logger.info("Creating vector for document")
         logger.info(f"Document: {doc}")
         if user_openai_api_key:
             self.commons["documents_vector_store"]._embedding = OpenAIEmbeddings(
@@ -60,5 +59,6 @@ def create_summary(commons: CommonsDep, document_id, content, metadata):
     summary_doc_with_metadata = Document(page_content=summary, metadata=metadata)
     sids = commons["summaries_vector_store"].add_documents([summary_doc_with_metadata])
     if sids and len(sids) > 0:
-        commons['supabase'].table("summaries").update(
-            {"document_id": document_id}).match({"id": sids[0]}).execute()
+        commons["supabase"].table("summaries").update(
+            {"document_id": document_id}
+        ).match({"id": sids[0]}).execute()
