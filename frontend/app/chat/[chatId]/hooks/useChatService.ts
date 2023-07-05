@@ -2,14 +2,14 @@
 
 import { useCallback } from "react";
 
+import { useChatApi } from "@/lib/api/chat/useChatApi";
 import { useBrainContext } from "@/lib/context/BrainProvider/hooks/useBrainContext";
+import { useChatContext } from "@/lib/context/ChatProvider/hooks/useChatContext";
 import { useAxios, useFetch } from "@/lib/hooks";
 
-import { useChatContext } from "../../../../lib/context/ChatProvider";
-import { ChatEntity, ChatHistory, ChatQuestion } from "../types";
+import { ChatHistory, ChatQuestion } from "../types";
 
 interface UseChatService {
-  createChat: (name: { name: string }) => Promise<ChatEntity>;
   getChatHistory: (chatId: string | undefined) => Promise<ChatHistory[]>;
   addQuestion: (chatId: string, chatQuestion: ChatQuestion) => Promise<void>;
   addStreamQuestion: (
@@ -23,16 +23,7 @@ export const useChatService = (): UseChatService => {
   const { fetchInstance } = useFetch();
   const { updateHistory, updateStreamingHistory } = useChatContext();
   const { currentBrain } = useBrainContext();
-  const createChat = async ({
-    name,
-  }: {
-    name: string;
-  }): Promise<ChatEntity> => {
-    const response = (await axiosInstance.post<ChatEntity>(`/chat`, { name }))
-      .data;
-
-    return response;
-  };
+  const { addQuestion } = useChatApi();
 
   const getChatHistory = useCallback(
     async (chatId: string | undefined): Promise<ChatHistory[]> => {
@@ -48,7 +39,7 @@ export const useChatService = (): UseChatService => {
     [axiosInstance]
   );
 
-  const addQuestion = async (
+  const addQuestionHandler = async (
     chatId: string,
     chatQuestion: ChatQuestion
   ): Promise<void> => {
@@ -56,12 +47,13 @@ export const useChatService = (): UseChatService => {
       throw new Error("No current brain");
     }
 
-    const response = await axiosInstance.post<ChatHistory>(
-      `/chat/${chatId}/question?brain_id=${currentBrain.id}`,
-      chatQuestion
-    );
+    const response = await addQuestion({
+      chatId,
+      brainId: currentBrain.id,
+      chatQuestion,
+    });
 
-    updateHistory(response.data);
+    updateHistory(response);
   };
 
   const handleStream = async (
@@ -129,9 +121,8 @@ export const useChatService = (): UseChatService => {
   };
 
   return {
-    createChat,
     getChatHistory,
-    addQuestion,
+    addQuestion: addQuestionHandler,
     addStreamQuestion,
   };
 };

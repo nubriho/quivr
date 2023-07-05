@@ -3,12 +3,13 @@ import { AxiosError } from "axios";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { useChatApi } from "@/lib/api/chat/useChatApi";
 import { useBrainConfig } from "@/lib/context/BrainConfigProvider/hooks/useBrainConfig";
+import { useChatContext } from "@/lib/context/ChatProvider/hooks/useChatContext";
 import { useToast } from "@/lib/hooks";
 import { useEventTracking } from "@/services/analytics/useEventTracking";
 
 import { useChatService } from "./useChatService";
-import { useChatContext } from "../../../../lib/context/ChatProvider";
 import { ChatQuestion } from "../types";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -24,9 +25,9 @@ export const useChat = () => {
   } = useBrainConfig();
   const { history, setHistory } = useChatContext();
   const { publish } = useToast();
+  const { createChat } = useChatApi();
 
   const {
-    createChat,
     getChatHistory,
     addStreamQuestion,
     addQuestion: addQuestionToModel,
@@ -47,7 +48,7 @@ export const useChat = () => {
   const generateNewChatIdFromName = async (
     chatName: string
   ): Promise<string> => {
-    const chat = await createChat({ name: chatName });
+    const chat = await createChat(chatName);
 
     return chat.chat_id;
   };
