@@ -8,7 +8,7 @@ from logger import get_logger
 from models.chat import ChatHistory
 from repository.chat.get_chat_history import get_chat_history
 from repository.chat.update_chat_history import update_chat_history
-from supabase import Client, create_client
+from supabase.client import Client, create_client
 from vectorstore.supabase import CustomSupabaseVectorStore
 
 from .base import BaseBrainPicking
@@ -27,7 +27,10 @@ def format_answer(model_response: Dict[str, Any]) -> OpenAiAnswer:
             answer["function_call"]["arguments"],
         )
 
-    return OpenAiAnswer(content=content, function_call=function_call)
+    return OpenAiAnswer(
+        content=content,
+        function_call=function_call,  # pyright: ignore reportPrivateUsage=none
+    )
 
 
 class OpenAIFunctionsBrainPicking(BaseBrainPicking):
@@ -48,7 +51,7 @@ class OpenAIFunctionsBrainPicking(BaseBrainPicking):
         brain_id: str,
         user_openai_api_key: str,
         # TODO: add streaming
-    ) -> "OpenAIFunctionsBrainPicking":
+    ) -> "OpenAIFunctionsBrainPicking":  # pyright: ignore reportPrivateUsage=none
         super().__init__(
             model=model,
             chat_id=chat_id,
@@ -61,11 +64,15 @@ class OpenAIFunctionsBrainPicking(BaseBrainPicking):
 
     @property
     def openai_client(self) -> ChatOpenAI:
-        return ChatOpenAI(openai_api_key=self.openai_api_key)
+        return ChatOpenAI(
+            openai_api_key=self.openai_api_key
+        )  # pyright: ignore reportPrivateUsage=none
 
     @property
     def embeddings(self) -> OpenAIEmbeddings:
-        return OpenAIEmbeddings(openai_api_key=self.openai_api_key)
+        return OpenAIEmbeddings(
+            openai_api_key=self.openai_api_key
+        )  # pyright: ignore reportPrivateUsage=none
 
     @property
     def supabase_client(self) -> Client:
@@ -125,7 +132,9 @@ class OpenAIFunctionsBrainPicking(BaseBrainPicking):
         """
         logger.info("Getting context")
 
-        return self.vector_store.similarity_search(query=question)
+        return self.vector_store.similarity_search(
+            query=question
+        )  # pyright: ignore reportPrivateUsage=none
 
     def _construct_prompt(
         self, question: str, useContext: bool = False, useHistory: bool = False
@@ -138,8 +147,8 @@ class OpenAIFunctionsBrainPicking(BaseBrainPicking):
             {
                 "role": "system",
                 "content": """Your name is Quivr. You are an assistant that has access to a person's documents and that can answer questions about them.
-                A person will ask you a question and you will provide a helpful answer. 
-                Write the answer in the same language as the question. 
+                A person will ask you a question and you will provide a helpful answer.
+                Write the answer in the same language as the question.
                 You have access to functions to help you answer the question.
                 If you don't know the answer, just say that you don't know but be helpful and explain why you can't answer""",
             }

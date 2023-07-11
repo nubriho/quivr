@@ -3,7 +3,7 @@ from typing import Annotated
 from fastapi import Depends
 from langchain.embeddings.openai import OpenAIEmbeddings
 from pydantic import BaseSettings
-from supabase import Client, create_client
+from supabase.client import Client, create_client
 from vectorstore.supabase import SupabaseVectorStore
 class BrainSettings(BaseSettings):
     openai_api_key: str
@@ -14,14 +14,14 @@ class BrainSettings(BaseSettings):
 
 class LLMSettings(BaseSettings):
     private: bool = False
-    model_path: str = "gpt2"
-    model_n_ctx: int = 1000
-    model_n_batch: int = 8
+    model_path: str = "./local_models/ggml-gpt4all-j-v1.3-groovy.bin"
 
 
 def common_dependencies() -> dict:
-    settings = BrainSettings()
-    embeddings = OpenAIEmbeddings(openai_api_key=settings.openai_api_key)
+    settings = BrainSettings()  # pyright: ignore reportPrivateUsage=none
+    embeddings = OpenAIEmbeddings(
+        openai_api_key=settings.openai_api_key
+    )  # pyright: ignore reportPrivateUsage=none
     supabase_client: Client = create_client(
         settings.supabase_url, settings.supabase_service_key
     )

@@ -9,6 +9,8 @@ from models.settings import common_dependencies
 from models.users import User
 from pydantic import BaseModel
 
+from routes.authorizations.brain_authorization import has_brain_authorization
+
 logger = get_logger(__name__)
 
 brain_router = APIRouter()
@@ -73,9 +75,16 @@ async def get_default_brain_endpoint(current_user: User = Depends(get_current_us
 
 # get one brain
 @brain_router.get(
-    "/brains/{brain_id}/", dependencies=[Depends(AuthBearer())], tags=["Brain"]
+    "/brains/{brain_id}/",
+    dependencies=[
+        Depends(AuthBearer()),
+        Depends(has_brain_authorization),
+    ],
+    tags=["Brain"],
 )
-async def get_brain_endpoint(brain_id: UUID):
+async def get_brain_endpoint(
+    brain_id: UUID,
+):
     """
     Retrieve details of a specific brain by brain ID.
 
@@ -99,7 +108,12 @@ async def get_brain_endpoint(brain_id: UUID):
 
 # delete one brain
 @brain_router.delete(
-    "/brains/{brain_id}/", dependencies=[Depends(AuthBearer())], tags=["Brain"]
+    "/brains/{brain_id}/",
+    dependencies=[
+        Depends(AuthBearer()),
+        Depends(has_brain_authorization),
+    ],
+    tags=["Brain"],
 )
 async def delete_brain_endpoint(
     brain_id: UUID,
@@ -142,33 +156,44 @@ async def create_brain_endpoint(
     In the brains table & in the brains_users table and put the creator user as 'Owner'
     """
 
-    brain = Brain(name=brain.name)
+    brain = Brain(name=brain.name)  # pyright: ignore reportPrivateUsage=none
 
-    brain.create_brain()
+    brain.create_brain()  # pyright: ignore reportPrivateUsage=none
     default_brain = get_default_user_brain(current_user)
     if default_brain:
         logger.info(f"Default brain already exists for user {current_user.id}")
-        brain.create_brain_user(
+        brain.create_brain_user(  # pyright: ignore reportPrivateUsage=none
             user_id=current_user.id, rights="Owner", default_brain=False
         )
     else:
         logger.info(
             f"Default brain does not exist for user {current_user.id}. It will be created."
         )
-        brain.create_brain_user(
+        brain.create_brain_user(  # pyright: ignore reportPrivateUsage=none
             user_id=current_user.id, rights="Owner", default_brain=True
         )
 
-    return {"id": brain.id, "name": brain.name}
+    return {
+        "id": brain.id,  # pyright: ignore reportPrivateUsage=none
+        "name": brain.name,
+    }
 
 
 # update existing brain
 @brain_router.put(
-    "/brains/{brain_id}/", dependencies=[Depends(AuthBearer())], tags=["Brain"]
+    "/brains/{brain_id}/",
+    dependencies=[
+        Depends(
+            AuthBearer(),
+        ),
+        Depends(has_brain_authorization),
+    ],
+    tags=["Brain"],
 )
 async def update_brain_endpoint(
     brain_id: UUID,
     input_brain: Brain,
+    current_user: User = Depends(get_current_user),
 ):
     """
     Update an existing brain with new brain parameters/files.
@@ -182,10 +207,12 @@ async def update_brain_endpoint(
     brain = Brain(id=brain_id)
 
     # Add new file to brain , il file_sha1 already exists in brains_vectors -> out (not now)
-    if brain.file_sha1:
+    if brain.file_sha1:  # pyright: ignore reportPrivateUsage=none
         # add all the vector Ids to the brains_vectors  with the given brain.brain_id
-        brain.update_brain_with_file(file_sha1=input_brain.file_sha1)
+        brain.update_brain_with_file(
+            file_sha1=input_brain.file_sha1  # pyright: ignore reportPrivateUsage=none
+        )
         print("brain:", brain)
 
-    brain.update_brain_fields(commons, brain)
+    brain.update_brain_fields(commons, brain)  # pyright: ignore reportPrivateUsage=none
     return {"message": f"Brain {brain_id} has been updated."}

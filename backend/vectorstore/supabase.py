@@ -3,8 +3,9 @@ from typing import Any, List
 from langchain.docstore.document import Document
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import SupabaseVectorStore
+from supabase.client import Client
 
-from supabase import Client
+
 class CustomSupabaseVectorStore(SupabaseVectorStore):
     """A custom vector store that uses the match_vectors table instead of the vectors table."""
 

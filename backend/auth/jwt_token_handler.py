@@ -10,6 +10,9 @@ dotenv.load_dotenv(verbose=True)
 SECRET_KEY = os.environ.get("JWT_SECRET_KEY")
 ALGORITHM = "HS256"
 
+if not SECRET_KEY:
+    raise ValueError("JWT_SECRET_KEY environment variable not set")
+
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     to_encode = data.copy()
@@ -28,9 +31,12 @@ def decode_access_token(token: str) -> User:
             token, SECRET_KEY, algorithms=[ALGORITHM], options={"verify_aud": False}
         )
     except JWTError:
-        return None
+        return None  # pyright: ignore reportPrivateUsage=none
 
-    return User(email=payload.get("email"), id=payload.get("sub"))
+    return User(
+        email=payload.get("email"),
+        id=payload.get("sub"),  # pyright: ignore reportPrivateUsage=none
+    )
 
 
 def verify_token(token: str):
