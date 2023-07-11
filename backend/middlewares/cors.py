@@ -8,7 +8,7 @@ origins = [
     "https://www.quivr.app",
     "http://quivr.app",
     "http://www.quivr.app",
-    "https://quivr-masapasa.vercel.app/"
+    "https://quivr-nubriho.vercel.app/"
     "*"
 ]
 
