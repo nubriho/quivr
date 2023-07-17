@@ -1,5 +1,6 @@
 import { AxiosInstance } from "axios";
 
+import { BrainRoleType } from "@/lib/components/NavBar/components/NavItems/components/BrainsDropDown/components/BrainActions/types";
 import { Brain } from "@/lib/context/BrainProvider/types";
 import { Document } from "@/lib/types/Document";
 
@@ -39,7 +40,7 @@ export const deleteBrain = async (
   brainId: string,
   axiosInstance: AxiosInstance
 ): Promise<void> => {
-  await axiosInstance.delete(`/brains/${brainId}/`);
+  await axiosInstance.delete(`/brain/${brainId}/subscription`);
 };
 
 export const getDefaultBrain = async (
@@ -58,4 +59,22 @@ export const getBrains = async (
     .data;
 
   return brains.brains;
+};
+
+export type Subscription = { email: string; rights: BrainRoleType };
+
+export const addBrainSubscriptions = async (
+  brainId: string,
+  subscriptions: Subscription[],
+  axiosInstance: AxiosInstance
+): Promise<void> => {
+  await axiosInstance.post(`/brain/${brainId}/subscription`, subscriptions);
+};
+
+export const getBrainUsers = async (
+  brainId: string,
+  axiosInstance: AxiosInstance
+): Promise<Subscription[]> => {
+  return (await axiosInstance.get<Subscription[]>(`/brain/${brainId}/users`))
+    .data;
 };

@@ -40,7 +40,7 @@ export const useBrainProvider = () => {
     } catch {
       publish({
         variant: "danger",
-        text: "Error occured while creating a brain",
+        text: "Error occurred while creating a brain",
       });
     }
   };
@@ -49,6 +49,10 @@ export const useBrainProvider = () => {
     await deleteBrain(id);
     setAllBrains((prevBrains) => prevBrains.filter((brain) => brain.id !== id));
     void track("DELETE_BRAIN");
+    publish({
+      variant: "success",
+      text: "Brain deleted",
+    });
   };
 
   const fetchAllBrains = useCallback(async () => {

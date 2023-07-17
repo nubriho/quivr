@@ -70,7 +70,7 @@ describe("useBrainApi", () => {
     await deleteBrain(id);
 
     expect(axiosDeleteMock).toHaveBeenCalledTimes(1);
-    expect(axiosDeleteMock).toHaveBeenCalledWith(`/brains/${id}/`);
+    expect(axiosDeleteMock).toHaveBeenCalledWith(`/brain/${id}/subscription`);
   });
 
   it("should call getDefaultBrain with the correct parameters", async () => {
@@ -108,5 +108,40 @@ describe("useBrainApi", () => {
 
     expect(axiosGetMock).toHaveBeenCalledTimes(1);
     expect(axiosGetMock).toHaveBeenCalledWith(`/brains/${id}/`);
+  });
+
+  it("should call addBrainSubscription with the correct parameters", async () => {
+    const {
+      result: {
+        current: { addBrainSubscriptions },
+      },
+    } = renderHook(() => useBrainApi());
+    const id = "123";
+    const subscriptions = [
+      {
+        email: "user@quivr.app",
+        rights: "viewer",
+      },
+    ];
+    await addBrainSubscriptions(id, subscriptions);
+
+    expect(axiosPostMock).toHaveBeenCalledTimes(1);
+    expect(axiosPostMock).toHaveBeenCalledWith(
+      `/brain/${id}/subscription`,
+      subscriptions
+    );
+  });
+
+  it("should call getBrainUsers with the correct parameters", async () => {
+    const {
+      result: {
+        current: { getBrainUsers },
+      },
+    } = renderHook(() => useBrainApi());
+    const id = "123";
+    await getBrainUsers(id);
+
+    expect(axiosGetMock).toHaveBeenCalledTimes(1);
+    expect(axiosGetMock).toHaveBeenCalledWith(`/brain/${id}/users`);
   });
 });
