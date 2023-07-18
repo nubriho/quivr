@@ -51,10 +51,7 @@ async def get_default_brain_endpoint(current_user: User = Depends(get_current_us
     """
 
     brain = get_default_user_brain_or_create_new(current_user)
-    return {
-        "id": brain.id,
-        "name": brain.name,
-    }
+    return {"id": brain.id, "name": brain.name, "rights": "Owner"}
 
 
 # get one brain - Currently not used in FE
@@ -81,7 +78,6 @@ async def get_brain_endpoint(
         return {
             "id": brain_id,
             "name": brains[0]["name"],
-            "status": brains[0]["status"],
         }
     else:
         return HTTPException(
@@ -126,6 +122,7 @@ async def create_brain_endpoint(
     return {
         "id": brain.id,  # pyright: ignore reportPrivateUsage=none
         "name": brain.name,
+        "rights": "Owner",
     }
 
 

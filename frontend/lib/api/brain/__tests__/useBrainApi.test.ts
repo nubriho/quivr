@@ -2,6 +2,7 @@
 import { renderHook } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
+import { Subscription, SubscriptionUpdatableProperties } from "../brain";
 import { useBrainApi } from "../useBrainApi";
 
 const axiosGetMock = vi.fn(() => ({
@@ -18,6 +19,7 @@ const axiosPostMock = vi.fn(() => ({
 }));
 
 const axiosDeleteMock = vi.fn(() => ({}));
+const axiosPutMock = vi.fn(() => ({}));
 
 vi.mock("@/lib/hooks", () => ({
   useAxios: vi.fn(() => ({
@@ -25,6 +27,7 @@ vi.mock("@/lib/hooks", () => ({
       get: axiosGetMock,
       post: axiosPostMock,
       delete: axiosDeleteMock,
+      put: axiosPutMock,
     },
   })),
 }));
@@ -70,7 +73,7 @@ describe("useBrainApi", () => {
     await deleteBrain(id);
 
     expect(axiosDeleteMock).toHaveBeenCalledTimes(1);
-    expect(axiosDeleteMock).toHaveBeenCalledWith(`/brain/${id}/subscription`);
+    expect(axiosDeleteMock).toHaveBeenCalledWith(`/brains/${id}/subscription`);
   });
 
   it("should call getDefaultBrain with the correct parameters", async () => {
@@ -117,17 +120,17 @@ describe("useBrainApi", () => {
       },
     } = renderHook(() => useBrainApi());
     const id = "123";
-    const subscriptions = [
+    const subscriptions: Subscription[] = [
       {
         email: "user@quivr.app",
-        rights: "viewer",
+        rights: "Viewer",
       },
     ];
     await addBrainSubscriptions(id, subscriptions);
 
     expect(axiosPostMock).toHaveBeenCalledTimes(1);
     expect(axiosPostMock).toHaveBeenCalledWith(
-      `/brain/${id}/subscription`,
+      `/brains/${id}/subscription`,
       subscriptions
     );
   });
@@ -142,6 +145,24 @@ describe("useBrainApi", () => {
     await getBrainUsers(id);
 
     expect(axiosGetMock).toHaveBeenCalledTimes(1);
-    expect(axiosGetMock).toHaveBeenCalledWith(`/brain/${id}/users`);
+    expect(axiosGetMock).toHaveBeenCalledWith(`/brains/${id}/users`);
+  });
+  it("should call updateBrainAccess with the correct parameters", async () => {
+    const {
+      result: {
+        current: { updateBrainAccess },
+      },
+    } = renderHook(() => useBrainApi());
+    const brainId = "123";
+    const email = "456";
+    const subscription: SubscriptionUpdatableProperties = {
+      rights: "Viewer",
+    };
+    await updateBrainAccess(brainId, email, subscription);
+    expect(axiosPutMock).toHaveBeenCalledTimes(1);
+    expect(axiosPutMock).toHaveBeenCalledWith(
+      `/brains/${brainId}/subscription`,
+      { ...subscription, email }
+    );
   });
 });

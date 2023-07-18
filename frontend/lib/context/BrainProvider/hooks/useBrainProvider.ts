@@ -10,7 +10,7 @@ import {
   getBrainFromLocalStorage,
   saveBrainInLocalStorage,
 } from "../helpers/brainLocalStorage";
-import { Brain } from "../types";
+import { MinimalBrainForUser } from "../types";
 
 // CAUTION: This hook should be use in BrainProvider only. You may be need `useBrainContext` instead.
 
@@ -21,7 +21,7 @@ export const useBrainProvider = () => {
   const { createBrain, deleteBrain, getBrains, getDefaultBrain } =
     useBrainApi();
 
-  const [allBrains, setAllBrains] = useState<Brain[]>([]);
+  const [allBrains, setAllBrains] = useState<MinimalBrainForUser[]>([]);
   const [currentBrainId, setCurrentBrainId] = useState<null | UUID>(null);
   const [isFetchingBrains, setIsFetchingBrains] = useState(false);
 
