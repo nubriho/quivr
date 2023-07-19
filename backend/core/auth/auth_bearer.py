@@ -1,12 +1,10 @@
 import os
 from typing import Optional
-import dotenv
 from auth.api_key_handler import get_user_from_api_key, verify_api_key
 from auth.jwt_token_handler import decode_access_token, verify_token
 from fastapi import Depends, HTTPException, Request
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from models.users import User
-dotenv.load_dotenv(verbose=True)
 
 class AuthBearer(HTTPBearer):
     def __init__(self, auto_error: bool = True):
