@@ -5,13 +5,20 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from pydantic import BaseSettings
 from supabase.client import Client, create_client
 from vectorstore.supabase import SupabaseVectorStore
+
+
+class BrainRateLimiting(BaseSettings):
+    max_brain_size = 52428800
+    max_brain_per_user = 5
+
+
 class BrainSettings(BaseSettings):
     openai_api_key: str
     anthropic_api_key: str
     supabase_url: str
     supabase_service_key: str
     resend_api_key: str = "null"
-    resend_email_address: str = "brain@mail.quivr.app"
+    resend_email_address: str = "info@nubri.co"
 
 
 class LLMSettings(BaseSettings):
